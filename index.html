@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="./master.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root">
+    <div class="slider">
+      <h1 class="title">Image Slider</h1>
+
+      <div class="slider-container">
+        <div class="controls prev" @click="prev">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-slides">
+          <img width="500" :src="imgArray[index]" alt="">
+        </div>
+        <div class="controls next" @click="next">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <i v-for="dot in imgArray.length"
+           class="fas fa-circle"
+           :class="(dot - 1 == index) ? 'active' : ''"
+           @click="dotSelection(dot-1)">
+         </i>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="main.js" charset="utf-8"></script>
+</body>
+</html>
